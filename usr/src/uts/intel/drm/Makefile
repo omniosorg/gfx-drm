@@ -46,7 +46,7 @@ CMN_DRM		= $(UTSBASE)/common/drm
 INC_PATH	+= -I$(CMN_DRM)
 
 # Dependency
-LDFLAGS		+= -dy -Nmisc/agpmaster -Nmisc/gfx_private
+LDFLAGS		+= -ztype=kmod -Nmisc/agpmaster -Nmisc/gfx_private
 
 #
 #	Include common rules.

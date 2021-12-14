@@ -49,7 +49,7 @@ CMN_DRM		= $(UTSBASE)/common/drm
 INC_PATH	+= -I$(CMN_DRM)
 
 # Dependency
-LDFLAGS		+= -dy -Nmisc/drm
+LDFLAGS		+= -ztype=kmod -Nmisc/drm
 
 #
 #	Include common rules.

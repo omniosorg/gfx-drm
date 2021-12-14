@@ -24,7 +24,7 @@ ROOTMODULE	= $(ROOT_DRV_DIR)/$(MODULE)
 #
 #       dependency
 #
-LDFLAGS += -dy -Nmisc/busra
+LDFLAGS += -ztype=kmod -Nmisc/busra
 
 #
 #	Include common rules.
