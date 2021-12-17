@@ -49,7 +49,7 @@ INC_PATH	+= -I$(UTSBASE)/intel/io/agpmaster
 #
 #	dependency
 #
-LDFLAGS	+=      -dy -Nmisc/pci_autoconfig
+LDFLAGS	+=      -ztype=kmod -Nmisc/pci_autoconfig
 
 #
 #	Include common rules.

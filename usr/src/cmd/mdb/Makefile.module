@@ -173,7 +173,7 @@ $(KMDB_LINKTEST_ENABLE)KMDB_LINKTEST_CMD = $(KMDB_LINKTEST)
 KMDB_FPTEST_CMD = $(KMDB_FPTEST)
 
 $(KMODFILE): kmod .WAIT $(KMODOBJS) $(MAPFILE)
-	$(LD) -dy -r $(MAPFILE:%=-M%) -Nmisc/kmdbmod -o $@ $(KMODOBJS) \
+	$(LD) -ztype=kmod $(MAPFILE:%=-M%) -Nmisc/kmdbmod -o $@ $(KMODOBJS) \
 	$(STANDOBJS)
 	$(KMDB_LINKTEST_CMD)
 	$(KMDB_FPTEST_CMD)

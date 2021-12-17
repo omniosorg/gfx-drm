@@ -52,7 +52,7 @@ $(OBJECTS): $(INLINES)
 #	and will sign the ELF objects using elfsign(1).
 #
 $(BINARY):		$(OBJECTS)
-	$(LD) -r $(LDFLAGS) -o $@ $(OBJECTS)
+	$(LD) -ztype=kmod $(LDFLAGS) -o $@ $(OBJECTS)
 	$(CTFMERGE_UNIQUIFY_AGAINST_GENUNIX)
 	$(POST_PROCESS)
 	$(ELFSIGN_MOD)

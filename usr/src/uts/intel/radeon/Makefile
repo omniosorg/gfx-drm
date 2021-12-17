@@ -50,7 +50,7 @@ INC_PATH        += -I$(UTSBASE)/intel/io/drm -I$(UTSBASE)/common/io/drm
 
 #
 #	dependency
-LDFLAGS	+= -dy -Nmisc/drm
+LDFLAGS	+= -ztype=kmod -Nmisc/drm
 
 #
 #	Include common rules.
