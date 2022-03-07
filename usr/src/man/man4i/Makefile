@@ -15,9 +15,9 @@
 
 include		$(SRC)/Makefile.master
 
-MANSECT= 	7i
+MANSECT= 	4i
 
-MANFILES= 	agpgart_io.7i
+MANFILES= 	agpgart_io.4i
 
 MANLINKS=
 

@@ -15,14 +15,36 @@
 
 include		$(SRC)/Makefile.master
 
-MANSECT= 	7d
+MANSECT= 	4
 
-MANFILES= 	i915.7d
+# generated man pages
+GENMANS= \
+	drm.4 \
+	drm-kms.4 \
+	drm-memory.4
+
+LINKSRC= drm-memory.4
+GENLINKS= \
+	drm-mm.4 \
+	drm-gem.4 \
+	drm-ttm.4
+
+MANFILES= $(GENMANS)
 
 MANLINKS=
 
 .KEEP_STATE:
 
 include		$(SRC)/man/Makefile.man
+include		$(SRC)/common/libdrm/Makefile.drm
 
-install:	$(ROOTMANFILES) $(ROOTMANLINKS)
+ROOTGENLINKS=	$(GENLINKS:%=$(ROOTMAN)/man$(MANSECT)/%)
+
+install:	$(ROOTMANFILES) $(ROOTMANLINKS) $(ROOTGENLINKS)
+
+$(ROOTMAN)/man4/%.4 : $(LIBDRM_CMN_DIR)/man/%.xml
+	$(XSLTPROC_PROCESS_MAN)
+
+
+$(ROOTGENLINKS):
+		$(RM) $@; $(SYMLINK) $(LINKSRC) $@
