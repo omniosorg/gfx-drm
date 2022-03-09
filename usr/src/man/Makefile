@@ -16,9 +16,9 @@
 SUBDIRS=	man1		\
 		man3		\
 		man3x		\
-		man7		\
-		man7d		\
-		man7i
+		man4		\
+		man4d		\
+		man4i
 
 .PARALLEL: $(SUBDIRS)
 
